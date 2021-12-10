@@ -1,0 +1,2 @@
+#find . ! -name 'file.txt' -type f -exec rm -f {} +
+#find . ! -name "CinnVIIStarkMenu@NikoKrause" -type d -exec rm -rf {} +
