@@ -1,0 +1,1 @@
+replace "rm" by "rmv" /home/daniella/Desktop/Old desktops/Ubuntu 2020-2022/Other/PJs/Incubator/Bash-tools/rmv
