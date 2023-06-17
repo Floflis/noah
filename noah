@@ -1,2 +1,22 @@
-#find . ! -name 'file.txt' -type f -exec rm -f {} +
-#find . ! -name "CinnVIIStarkMenu@NikoKrause" -type d -exec rm -rf {} +
+#!/bin/bash
+
+# Define the list of files/folders to keep
+keep_files=("file.txt" "CinnVIIStarkMenu@NikoKrause")
+
+# Check if an external file is provided and read its contents into an array
+if [ -f "$1" ]; then
+  readarray -t keep_files < "$1"
+fi
+
+# Loop through all files/folders in the current directory
+for file in *; do
+  # Check if the file/folder should be kept
+  if [[ ! " ${keep_files[@]} " =~ " ${file} " ]]; then
+    # If not, delete it
+    if [ -f "$file" ]; then
+      rm -f "$file"
+    elif [ -d "$file" ]; then
+      rm -rf "$file"
+    fi
+  fi
+done
